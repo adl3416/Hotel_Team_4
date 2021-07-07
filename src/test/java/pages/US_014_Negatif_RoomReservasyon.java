@@ -16,5 +16,8 @@ public class US_014_Negatif_RoomReservasyon {
     public WebElement hotelListManagementButton;
 
 
+    @FindBy
+    public WebElement addRoomReservationButton;
+
 
 }
