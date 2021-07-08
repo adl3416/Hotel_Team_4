@@ -24,7 +24,7 @@ public class US_002_Negatif_Login {
     public WebElement sonLoginButonu;
 
     @FindBy(id = "divMessageResult")
-    public WebElement yanlisSifreIleGirilemediYazisi;
+    public WebElement girisYapilamadiYazisi;
 
     
 }
