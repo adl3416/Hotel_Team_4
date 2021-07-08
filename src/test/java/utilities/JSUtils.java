@@ -54,6 +54,11 @@ public class JSUtils {
         javascriptExecutor.executeScript("alert('" + message + "')");
         Thread.sleep(3000);
     }
+    public static void scrollPageDown() {
+        JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
+
 
     public void pageisLoaded(){
         JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
