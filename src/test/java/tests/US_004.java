@@ -85,14 +85,14 @@ public class US_004 {
         //Sayfanin ortasina gitmek icin sagigaki Javascript yontemi kullanilir.
         JavascriptExecutor j = (JavascriptExecutor) Driver.getDriver();
         j.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", misafirYorum);
-        ReusableMethods.waitForClickablility(homePage.carouselElementi,15);
+        ReusableMethods.waitForVisibility(homePage.carouselElementi,15);
         //Carouseldeki itemleri almak icin
         List <WebElement> names= Driver.getDriver().findElements(By.xpath("//div[@class='carousel-testimony owl-carousel ftco-owl owl-loaded owl-drag']"));
         ArrayList list1 = new ArrayList();
         String name;
         for (int i = 0; i<names.size(); i++){
             int index = i+1;
-            name = Driver.getDriver().findElement(By.xpath("//div[@class='carousel-testimony owl-carousel ftco-owl owl-loaded owl-drag']" + "[" + index + "]")).getText();
+            name = Driver.getDriver().findElement(By.xpath("//div[6]/div[1]/div[1]/div[2]/p[1]")).getText();
             list1.add(name);
             System.out.println(name);
         }
