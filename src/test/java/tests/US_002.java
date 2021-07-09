@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import pages.US_002_Negatif_Login;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class US_002 {
     US_002_Negatif_Login us_002_negatif_login=new US_002_Negatif_Login();
