@@ -1,13 +1,10 @@
 package tests;
 
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.US_014_Negatif_RoomReservasyon;
 import utilities.JSUtils;
-import utilities.ReusableMethods;
+
 
 public class US_014 {
 
@@ -25,5 +22,4 @@ public class US_014 {
         page.hataMesajikontrolEdilenElemanHaricBilgileriDoldur(page.iDUser);
         Assert.assertTrue(page.idUserHataMesaji.isDisplayed());
     }
-
 }

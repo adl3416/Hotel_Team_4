@@ -96,7 +96,6 @@ public class US_014_Negatif_RoomReservasyon {
         List<WebElement> messages = errorMessages;
         SoftAssert softAssert = new SoftAssert();
         for (WebElement w: messages) {
-            System.out.println("w.getText() = " + w.getText());
             softAssert.assertTrue(w.isDisplayed());
         }
 
@@ -118,14 +117,12 @@ public class US_014_Negatif_RoomReservasyon {
 
     public void hataMesajikontrolEdilenElemanHaricBilgileriDoldur(WebElement istenmeyenEleman){
 
-
         String chordData = Keys.chord("Select User",Keys.TAB,"Ahmet",Keys.TAB,"3500",Keys.TAB,"07/13/2021",
                 Keys.TAB,Keys.TAB,"07/15/2021",Keys.TAB,Keys.TAB,"2",Keys.TAB,"2",Keys.TAB,"Test Tester",Keys.TAB,"5554448844",
                 Keys.TAB,"test@gmail.com",Keys.TAB,"Test",Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER);
         iDUser.sendKeys(chordData);
 
     }
-
 
 
 }
