@@ -10,17 +10,16 @@ public class US_006_HotelEkleme {
     public US_006_HotelEkleme(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
-    @FindBy(linkText = "Log in")
-    public WebElement ilkLoginLinki;
-
-    @FindBy(id = "UserName")
-    public WebElement kullaniciAdiTextBox;
-
-
-    @FindBy(id = "Password")
-    public WebElement passwordTexBox;
-
+    @FindBy(xpath = "//a[text()='Log in']")
+    public WebElement loginButton;
+    @FindBy(css = "#UserName")
+    public WebElement userName;
+    @FindBy(css = "#Password")
+    public WebElement password;
     @FindBy(id = "btnSubmit")
-    public WebElement loginButonu;
+    public WebElement loginSubmit;
+    @FindBy(xpath = "(//span[@class='title'])[3]")
+    public WebElement hotelManagementButton;
+
 }
+

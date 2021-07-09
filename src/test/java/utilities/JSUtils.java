@@ -54,8 +54,13 @@ public class JSUtils {
         javascriptExecutor.executeScript("alert('" + message + "')");
         Thread.sleep(3000);
     }
+    public static void scrollPageDown() {
+        JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
 
-    public void pageisLoaded(){
+
+    public static void pageisLoaded(){
         JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
         String states = js.executeScript("return document.readyState").toString();
         //verification
@@ -70,4 +75,8 @@ public class JSUtils {
                 break;
         }
     }
+
+
+
+
 }
