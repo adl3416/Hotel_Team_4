@@ -17,7 +17,8 @@ public class US_002 {
         us_002_negatif_login.username.sendKeys(ConfigReader.getProperty("kr_valid_username"));
         us_002_negatif_login.password.sendKeys(ConfigReader.getProperty("kr_wrong_password"));
         us_002_negatif_login.sonLoginButonu.click();
-        Assert.assertTrue(us_002_negatif_login.girisYapilamadiYazisi.isDisplayed());
+        Assert.assertTrue(us_002_negatif_login.girisYapilamadiYazisi.isDisplayed()&&
+                us_002_negatif_login.girisYapilamadiYazisi.getText().contains("Wrong password"));
     }
 
     @Test
