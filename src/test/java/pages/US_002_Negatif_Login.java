@@ -28,5 +28,10 @@ public class US_002_Negatif_Login {
     @FindBy(id = "divMessageResult")
     public WebElement girisYapilamadiYazisi;
 
-    
+    @FindBy(xpath = "(//label[text()='This field is required.'])[1]")
+    public WebElement bosbutonYazisi;
+
+
+
+
 }
