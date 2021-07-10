@@ -28,7 +28,7 @@ public class JSUtils {
     //Scroll into view with JS. THIS IS VERY USEFULL
     public static void scrollIntoVIewJS(WebElement element) {
         JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
-        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+        jsexecutor.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element);
     }
 
     public static void changeColor(String color, WebElement element) {
