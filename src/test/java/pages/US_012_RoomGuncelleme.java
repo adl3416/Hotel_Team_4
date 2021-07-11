@@ -54,11 +54,26 @@ public class US_012_RoomGuncelleme {
         @FindBy(xpath = "//textarea[@id='txtBarcode']")
         public WebElement valueYazisi;
 
-        @FindBy(xpath = "(//button[@class='btn green'])[2]")
+        @FindBy(xpath ="(//button[@class='btn green'])[2]")
         public WebElement saveButonu;
+        @FindBy(xpath = "//button[@class='btn btn-primary']")
+        public WebElement saveOkButtonu;
 
-        @FindBy(xpath = "(//button[@id='btnDelete'])[1]")
-        public WebElement deleteButonu;
+        @FindBy(xpath = "//a[@class='btn default btn-sm  margin-bottom-5']")
+        public WebElement removeButonu;
+        @FindBy(xpath = "//button[@class='btn btn-primary']")
+        public WebElement removeOkButtonu;
+
+        @FindBy (xpath = "//div[@class='bootbox-body']")
+        public WebElement removeSilindiMesaji;
+
+        @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement degerBosBirakilamazYazisi;
+
+
+        @FindBy  (xpath = "//div[@class='bootbox-body']")
+    public WebElement saveTusuUyariYazisi;
+
     }
 
 
