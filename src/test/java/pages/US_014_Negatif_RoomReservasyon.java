@@ -5,14 +5,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-import javax.naming.CompositeName;
 import java.util.List;
 
 public class US_014_Negatif_RoomReservasyon {
@@ -115,7 +111,7 @@ public class US_014_Negatif_RoomReservasyon {
 
     }
 
-    public void hataMesajikontrolEdilenElemanHaricBilgileriDoldur(WebElement istenmeyenEleman){
+    public void hataMesajikontrolEdilenElemanHaricBilgileriDoldur(WebElement element){
 
         String chordData = Keys.chord("Select User",Keys.TAB,"Ahmet",Keys.TAB,"3500",Keys.TAB,"07/13/2021",
                 Keys.TAB,Keys.TAB,"07/15/2021",Keys.TAB,Keys.TAB,"2",Keys.TAB,"2",Keys.TAB,"Test Tester",Keys.TAB,"5554448844",
@@ -123,6 +119,5 @@ public class US_014_Negatif_RoomReservasyon {
         iDUser.sendKeys(chordData);
 
     }
-
 
 }

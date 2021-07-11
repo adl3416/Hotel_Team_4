@@ -1,8 +1,11 @@
 package tests;
 
 import org.testng.Assert;
+
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.US_014_Negatif_RoomReservasyon;
+import utilities.Driver;
 import utilities.JSUtils;
 
 
@@ -15,11 +18,18 @@ public class US_014 {
         page.preConditions();
         JSUtils.clickElementByJS(page.saveButton);
         page.hataMesajlarıGörüntülendiMi();
+
     }
     @Test
     public void tc_002(){
         page.preConditions();
-        page.hataMesajikontrolEdilenElemanHaricBilgileriDoldur(page.iDUser);
+        page.hataMesajikontrolEdilenElemanHaricBilgileriDoldur(page.idUserHataMesaji);
         Assert.assertTrue(page.idUserHataMesaji.isDisplayed());
+    }
+
+
+    @AfterMethod
+    public void tearDown(){
+        Driver.closeDriver();
     }
 }
