@@ -82,7 +82,7 @@ public class US_004 {
     public void anaSayfakullaniciYorumuDogrulanmasiVeCarouselHandle(){
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
         WebElement misafirYorum=homePage.anaSayfaEltonSmithYazisi;
-        //Sayfanin ortasina gitmek icin sagigaki Javascript yontemi kullanilir.
+        //Sayfanin ortasina gitmek icin asagidaki Javascript yontemi kullanilir.
         JavascriptExecutor j = (JavascriptExecutor) Driver.getDriver();
         j.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", misafirYorum);
         ReusableMethods.waitForVisibility(homePage.carouselElementi,15);
@@ -101,6 +101,7 @@ public class US_004 {
         String expectedMisafirYorum="As I stayed, the sea was good, the service was good, the location was good.";
         Assert.assertEquals(actualMisafirYorum,expectedMisafirYorum);
         Driver.closeDriver();
+
     }
     public void enAltaGit(){
         Actions actions=new Actions(Driver.getDriver());
