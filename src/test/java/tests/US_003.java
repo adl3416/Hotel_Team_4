@@ -36,6 +36,7 @@ public class US_003 {
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
 
         Assert.assertTrue(home_page_elements.koalaResortText.isDisplayed());
+
     }
     @Test
     public void us_003_tc_003_Rooms_Button_isClickable(){
@@ -129,6 +130,8 @@ public class US_003 {
         String actualTitle = Driver.getDriver().getTitle();
 
         Assert.assertEquals(actualTitle,expectedTitle);
+
+        Driver.getDriver().close();
 
     }
 

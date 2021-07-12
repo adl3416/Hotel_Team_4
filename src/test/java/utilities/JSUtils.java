@@ -60,7 +60,7 @@ public class JSUtils {
     }
 
 
-    public void pageisLoaded(){
+    public static void pageisLoaded(){
         JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
         String states = js.executeScript("return document.readyState").toString();
         //verification
@@ -75,4 +75,8 @@ public class JSUtils {
                 break;
         }
     }
+
+
+
+
 }
