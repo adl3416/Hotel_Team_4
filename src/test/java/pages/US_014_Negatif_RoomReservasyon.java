@@ -87,6 +87,36 @@ public class US_014_Negatif_RoomReservasyon {
     @FindBy(css= "select#IDUser")
     public WebElement iDUser;
 
+    @FindBy(xpath = "(//i[@class='fa fa-calendar'])[1]")
+    public WebElement dateStartTakvimButton;
+
+    @FindBy(xpath = "(//i[@class='fa fa-calendar'])[2]")
+    public WebElement dateEndTakvimButton;
+
+    @FindBy(xpath = "(//td[@class='disabled day'])[1]")
+    public WebElement disabledDay;
+
+    @FindBy(xpath = "(//td[@class='day'])[1]")
+    public WebElement enabledDay;
+
+
+    @FindBy(xpath = "//tbody//td")
+    public List<WebElement> takvimGunDataları;
+
+
+    public Boolean gunSecildiMi(){
+        List<WebElement> list = takvimGunDataları;
+        boolean sonuc = true;
+        for (WebElement w : list) {
+            if(w.getAttribute("class").equals("active day")){
+                sonuc = true;
+            }else {
+                sonuc = false;
+            }
+        }
+        return sonuc;
+    }
+
 
     public void hataMesajlarıGörüntülendiMi(){
         List<WebElement> messages = errorMessages;
@@ -113,10 +143,49 @@ public class US_014_Negatif_RoomReservasyon {
 
     public void hataMesajikontrolEdilenElemanHaricBilgileriDoldur(WebElement element){
 
-        String chordData = Keys.chord("Select User",Keys.TAB,"Ahmet",Keys.TAB,"3500",Keys.TAB,"07/13/2021",
-                Keys.TAB,Keys.TAB,"07/15/2021",Keys.TAB,Keys.TAB,"2",Keys.TAB,"2",Keys.TAB,"Test Tester",Keys.TAB,"5554448844",
-                Keys.TAB,"test@gmail.com",Keys.TAB,"Test",Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER);
-        iDUser.sendKeys(chordData);
+        String chordData;
+
+        if(element==idUserHataMesaji) {
+            chordData = Keys.chord("Select User", Keys.TAB, "Ahmet", Keys.TAB, "3500", Keys.TAB, "07/13/2021",
+                    Keys.TAB, Keys.TAB, "07/15/2021", Keys.TAB, Keys.TAB, "2", Keys.TAB, "2", Keys.TAB, "Test Tester", Keys.TAB, "5554448844",
+                    Keys.TAB, "test@gmail.com", Keys.TAB, "Test", Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER);
+            iDUser.sendKeys(chordData);
+        }else if(element==hotelRoomHataMesaji){
+            chordData = Keys.chord("manager", Keys.TAB, "Select HotelRoom", Keys.TAB, "3500", Keys.TAB, "07/13/2021",
+                    Keys.TAB, Keys.TAB, "07/15/2021", Keys.TAB, Keys.TAB, "2", Keys.TAB, "2", Keys.TAB, "Test Tester", Keys.TAB, "5554448844",
+                    Keys.TAB, "test@gmail.com", Keys.TAB, "Test", Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER);
+            iDUser.sendKeys(chordData);
+        }else if(element==priceHataMesaji){
+            chordData = Keys.chord("manager", Keys.TAB, "Ahmet", Keys.TAB, "priceText", Keys.TAB, "07/13/2021",
+                    Keys.TAB, Keys.TAB, "07/15/2021", Keys.TAB, Keys.TAB, "2", Keys.TAB, "2", Keys.TAB, "Test Tester", Keys.TAB, "5554448844",
+                    Keys.TAB, "test@gmail.com", Keys.TAB, "Test", Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER);
+            iDUser.sendKeys(chordData);
+        }else if(element==adultAmountHataMesaji){
+            chordData = Keys.chord("manager", Keys.TAB, "Ahmet", Keys.TAB, "25000", Keys.TAB, "07/13/2021",
+                    Keys.TAB, Keys.TAB, "07/15/2021", Keys.TAB, Keys.TAB, "AdultAmount", Keys.TAB, "2", Keys.TAB, "Test Tester", Keys.TAB, "5554448844",
+                    Keys.TAB, "test@gmail.com", Keys.TAB, "Test", Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER);
+            iDUser.sendKeys(chordData);
+        }else if(element==childrenAmountHataMesaji){
+            chordData = Keys.chord("manager", Keys.TAB, "Ahmet", Keys.TAB, "25000", Keys.TAB, "07/13/2021",
+                    Keys.TAB, Keys.TAB, "07/15/2021", Keys.TAB, Keys.TAB, "2", Keys.TAB, "ChildrenAmount", Keys.TAB, "Test Tester", Keys.TAB, "5554448844",
+                    Keys.TAB, "test@gmail.com", Keys.TAB, "Test", Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER);
+            iDUser.sendKeys(chordData);
+        }else if(element==contactNameSurnameHataMesaji){
+            chordData = Keys.chord("manager", Keys.TAB, "Ahmet", Keys.TAB, "25000", Keys.TAB, "07/13/2021",
+                    Keys.TAB, Keys.TAB, "07/15/2021", Keys.TAB, Keys.TAB, "2", Keys.TAB, "3", Keys.TAB, "85648541", Keys.TAB, "5554448844",
+                    Keys.TAB, "test@gmail.com", Keys.TAB, "Test", Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER);
+            iDUser.sendKeys(chordData);
+        }else if(element==contactPhoneHataMesaji){
+            chordData = Keys.chord("manager", Keys.TAB, "Ahmet", Keys.TAB, "25000", Keys.TAB, "07/13/2021",
+                    Keys.TAB, Keys.TAB, "07/15/2021", Keys.TAB, Keys.TAB, "2", Keys.TAB, "3", Keys.TAB, "Test Tester", Keys.TAB, "phone number",
+                    Keys.TAB, "test@gmail.com", Keys.TAB, "Test", Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER);
+            iDUser.sendKeys(chordData);
+        }else if(element==contactEmailHataMesaji){
+            chordData = Keys.chord("manager", Keys.TAB, "Ahmet", Keys.TAB, "25000", Keys.TAB, "07/13/2021",
+                    Keys.TAB, Keys.TAB, "07/15/2021", Keys.TAB, Keys.TAB, "2", Keys.TAB, "3", Keys.TAB, "Test Tester", Keys.TAB, "5554448844",
+                    Keys.TAB, "abcdf.1234", Keys.TAB, "Test", Keys.TAB, Keys.TAB, Keys.TAB, Keys.ENTER);
+            iDUser.sendKeys(chordData);
+        }
 
     }
 
