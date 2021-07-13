@@ -1,5 +1,9 @@
 package tests;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -43,13 +47,19 @@ public class US_008 {
     }
     @Test
     public void us008_TestCase03 () throws InterruptedException {
+
+
         pagesSayfam.hotelManagment.click();
         pagesSayfam.HotelListsekmesi.click();
         pagesSayfam.DetailsSekmesi.click();
-        pagesSayfam.PhoneSekmesi.click();
+
+
+
+
         pagesSayfam.PhoneSekmesi.clear();
-        pagesSayfam.PhoneSekmesi.sendKeys(ConfigReader.getProperty("US_008_guncelhotel_phone"));
+        pagesSayfam.PhoneSekmesi.sendKeys(ConfigReader.getProperty("US_008_guncel_phone"));
         pagesSayfam.SaveSekmesi.click();
+
         Thread.sleep(9000);
         Assert.assertTrue(pagesSayfam.SaveOlduYazisi.isDisplayed());
 
@@ -63,7 +73,7 @@ public class US_008 {
         pagesSayfam.DetailsSekmesi.click();
         pagesSayfam.EmailSekmesi.click();
         pagesSayfam.EmailSekmesi.clear();
-        pagesSayfam.EmailSekmesi.sendKeys(ConfigReader.getProperty("US_008_guncelhotel_email"));
+        pagesSayfam.EmailSekmesi.sendKeys(ConfigReader.getProperty("US_008_guncel_email"));
         pagesSayfam.SaveSekmesi.click();
         Thread.sleep(9000);
         Assert.assertTrue(pagesSayfam.SaveOlduYazisi.isDisplayed());

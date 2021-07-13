@@ -41,13 +41,13 @@ public class US_008_Positif_Hotel_Guncelleme {
         @FindBy(xpath = "(//div[@class='caption'])[1]")
         public WebElement DetailsYazisi;
 
-        @FindBy(xpath ="// input[@id='Phone']")
+        @FindBy(xpath ="//input[@name='Phone']")
         public WebElement PhoneSekmesi;
 
-        @FindBy(xpath = "// button[@class='btn green'][1]")
+        @FindBy(xpath = "//button[@class='btn green'][1]")
         public WebElement SaveSekmesi;
 
-        @FindBy(xpath = "// div[@class='bootbox-body']")
+        @FindBy(xpath = "//div[@class='bootbox-body']")
         public WebElement SaveOlduYazisi;
 
         @FindBy(xpath ="//input[@title='Email']")
@@ -64,6 +64,7 @@ public class US_008_Positif_Hotel_Guncelleme {
 
         @FindBy(xpath = "//button[@class='btn btn-primary']")
         public WebElement DevammiText;
+
 
 
 

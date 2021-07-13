@@ -82,17 +82,17 @@ public class US_004 {
     public void anaSayfakullaniciYorumuDogrulanmasiVeCarouselHandle(){
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
         WebElement misafirYorum=homePage.anaSayfaEltonSmithYazisi;
-        //Sayfanin ortasina gitmek icin sagigaki Javascript yontemi kullanilir.
+        //Sayfanin ortasina gitmek icin asagidaki Javascript yontemi kullanilir.
         JavascriptExecutor j = (JavascriptExecutor) Driver.getDriver();
         j.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", misafirYorum);
-        ReusableMethods.waitForClickablility(homePage.carouselElementi,15);
+        ReusableMethods.waitForVisibility(homePage.carouselElementi,15);
         //Carouseldeki itemleri almak icin
         List <WebElement> names= Driver.getDriver().findElements(By.xpath("//div[@class='carousel-testimony owl-carousel ftco-owl owl-loaded owl-drag']"));
         ArrayList list1 = new ArrayList();
         String name;
         for (int i = 0; i<names.size(); i++){
             int index = i+1;
-            name = Driver.getDriver().findElement(By.xpath("//div[@class='carousel-testimony owl-carousel ftco-owl owl-loaded owl-drag']" + "[" + index + "]")).getText();
+            name = Driver.getDriver().findElement(By.xpath("//div[6]/div[1]/div[1]/div[2]/p[1]")).getText();
             list1.add(name);
             System.out.println(name);
         }
@@ -101,6 +101,7 @@ public class US_004 {
         String expectedMisafirYorum="As I stayed, the sea was good, the service was good, the location was good.";
         Assert.assertEquals(actualMisafirYorum,expectedMisafirYorum);
         Driver.closeDriver();
+
     }
     public void enAltaGit(){
         Actions actions=new Actions(Driver.getDriver());
