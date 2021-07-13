@@ -34,6 +34,8 @@ public class US_008 {
         pagesSayfam.HotelListsekmesi.click();
         Assert.assertTrue(pagesSayfam.HotelListYazisi.isDisplayed());
     }
+
+
     @Test
     public void us008_TestCase02 () throws InterruptedException {
         pagesSayfam.hotelManagment.click();
@@ -42,9 +44,10 @@ public class US_008 {
         Thread.sleep(9000);
         Assert.assertTrue(pagesSayfam.DetailsYazisi.isDisplayed());
 
-
-
     }
+
+
+
     @Test
     public void us008_TestCase03 () throws InterruptedException {
 
@@ -52,16 +55,14 @@ public class US_008 {
         pagesSayfam.hotelManagment.click();
         pagesSayfam.HotelListsekmesi.click();
         pagesSayfam.DetailsSekmesi.click();
-
-
-
+        Driver.getDriver().get("https://qa-environment.koalaresorthotels.com/admin/HotelAdmin/Edit?Id=1033");
 
         pagesSayfam.PhoneSekmesi.clear();
+        Thread.sleep(7000);
         pagesSayfam.PhoneSekmesi.sendKeys(ConfigReader.getProperty("US_008_guncel_phone"));
-        pagesSayfam.SaveSekmesi.click();
-
-        Thread.sleep(9000);
         Assert.assertTrue(pagesSayfam.SaveOlduYazisi.isDisplayed());
+
+
 
     }
 
@@ -71,11 +72,12 @@ public class US_008 {
         pagesSayfam.hotelManagment.click();
         pagesSayfam.HotelListsekmesi.click();
         pagesSayfam.DetailsSekmesi.click();
-        pagesSayfam.EmailSekmesi.click();
+        Driver.getDriver().get("https://qa-environment.koalaresorthotels.com/admin/HotelAdmin/Edit?Id=1033");
+
         pagesSayfam.EmailSekmesi.clear();
         pagesSayfam.EmailSekmesi.sendKeys(ConfigReader.getProperty("US_008_guncel_email"));
         pagesSayfam.SaveSekmesi.click();
-        Thread.sleep(9000);
+        Thread.sleep(7000);
         Assert.assertTrue(pagesSayfam.SaveOlduYazisi.isDisplayed());
     }
 
@@ -85,10 +87,11 @@ public class US_008 {
         pagesSayfam.hotelManagment.click();
         pagesSayfam.HotelListsekmesi.click();
         pagesSayfam.DetailsSekmesi.click();
+        Driver.getDriver().get("https://qa-environment.koalaresorthotels.com/admin/HotelAdmin/Edit?Id=1033");
         pagesSayfam.GroupSekmesi.click();
         pagesSayfam.Group1.click();
         pagesSayfam.SaveSekmesi.click();
-        Thread.sleep(9000);
+        Thread.sleep(7000);
         Assert.assertTrue(pagesSayfam.SaveOlduYazisi.isDisplayed());
     }
 
@@ -97,10 +100,13 @@ public class US_008 {
         pagesSayfam.hotelManagment.click();
         pagesSayfam.HotelListsekmesi.click();
         pagesSayfam.DetailsSekmesi.click();
+        Driver.getDriver().get("https://qa-environment.koalaresorthotels.com/admin/HotelAdmin/Edit?Id=1033");
         pagesSayfam.DeleteSekmesi.click();
         pagesSayfam.DevammiText.click();
 
     }
+
+
 
 
 
