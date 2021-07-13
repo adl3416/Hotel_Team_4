@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.US_005_Hotel_Ekleme;
 import pages.US_008_Positif_Hotel_Guncelleme;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -14,100 +15,62 @@ import utilities.Driver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import utilities.ConfigReader;
+import utilities.Driver;
 public class US_008 {
-    US_008_Positif_Hotel_Guncelleme pagesSayfam = new US_008_Positif_Hotel_Guncelleme();
+    US_008_Positif_Hotel_Guncelleme MusteriBilgileriGuncelleme=new US_008_Positif_Hotel_Guncelleme();
+
     @BeforeClass
-    public void setup() {
-        Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
-        pagesSayfam.LoginButonu.click();
-        pagesSayfam.usurname.sendKeys(ConfigReader.getProperty("kr_valid_username"));
-        pagesSayfam.password.sendKeys(ConfigReader.getProperty("kr_valid_password"));
-        pagesSayfam.sonLoginButonu.click();
+    public void setup() { //Us_TC_001    ve Us_TC_002  de  icerir
 
-
-
-    }
-    @Test
-    public void us008_TestCase01 () {
-        pagesSayfam.hotelManagment.click();
-        pagesSayfam.HotelListsekmesi.click();
-        Assert.assertTrue(pagesSayfam.HotelListYazisi.isDisplayed());
+        MusteriBilgileriGuncelleme.loginMethodu();
+        MusteriBilgileriGuncelleme.Managementsekmesi.click();
+        MusteriBilgileriGuncelleme.HotelListsekmesi.click();
     }
 
-
     @Test
-    public void us008_TestCase02 () throws InterruptedException {
-        pagesSayfam.hotelManagment.click();
-        pagesSayfam.HotelListsekmesi.click();
-        pagesSayfam.DetailsSekmesi.click();
-        Thread.sleep(9000);
-        Assert.assertTrue(pagesSayfam.DetailsYazisi.isDisplayed());
-
-    }
-
-
-
-    @Test
-    public void us008_TestCase03 () throws InterruptedException {
-
-
-        pagesSayfam.hotelManagment.click();
-        pagesSayfam.HotelListsekmesi.click();
-        pagesSayfam.DetailsSekmesi.click();
-        Driver.getDriver().get("https://qa-environment.koalaresorthotels.com/admin/HotelAdmin/Edit?Id=1033");
-
-        pagesSayfam.PhoneSekmesi.clear();
+    public void Us_TC_003() throws InterruptedException {
+        MusteriBilgileriGuncelleme.hotelListPages();
+        MusteriBilgileriGuncelleme.PhoneSekmesi.clear();
+        MusteriBilgileriGuncelleme.PhoneSekmesi.sendKeys(ConfigReader.getProperty("US008_new_phone"));
+        MusteriBilgileriGuncelleme.savebuttonu.click();
         Thread.sleep(7000);
-        pagesSayfam.PhoneSekmesi.sendKeys(ConfigReader.getProperty("US_008_guncel_phone"));
-        Assert.assertTrue(pagesSayfam.SaveOlduYazisi.isDisplayed());
-
-
-
+        Assert.assertTrue(MusteriBilgileriGuncelleme.succesfullytext.isDisplayed());
+        MusteriBilgileriGuncelleme.okbutonu.click();
+        MusteriBilgileriGuncelleme.HotelListsekmesi.click();
     }
-
-
     @Test
-    public void us008_TestCase04 () throws InterruptedException {
-        pagesSayfam.hotelManagment.click();
-        pagesSayfam.HotelListsekmesi.click();
-        pagesSayfam.DetailsSekmesi.click();
-        Driver.getDriver().get("https://qa-environment.koalaresorthotels.com/admin/HotelAdmin/Edit?Id=1033");
-
-        pagesSayfam.EmailSekmesi.clear();
-        pagesSayfam.EmailSekmesi.sendKeys(ConfigReader.getProperty("US_008_guncel_email"));
-        pagesSayfam.SaveSekmesi.click();
+    public void Us_TC_004 () throws InterruptedException {
+        MusteriBilgileriGuncelleme.hotelListPages();
+        MusteriBilgileriGuncelleme.EmailSekmesi.clear();
+        MusteriBilgileriGuncelleme.EmailSekmesi.sendKeys(ConfigReader.getProperty("US008_new_email"));
+        MusteriBilgileriGuncelleme.savebuttonu.click();
         Thread.sleep(7000);
-        Assert.assertTrue(pagesSayfam.SaveOlduYazisi.isDisplayed());
+        Assert.assertTrue(MusteriBilgileriGuncelleme.succesfullytext.isDisplayed());
+        MusteriBilgileriGuncelleme.okbutonu.click();
+        MusteriBilgileriGuncelleme.HotelListsekmesi.click();
     }
-
-
     @Test
-    public void us008_TestCase05 () throws InterruptedException {
-        pagesSayfam.hotelManagment.click();
-        pagesSayfam.HotelListsekmesi.click();
-        pagesSayfam.DetailsSekmesi.click();
-        Driver.getDriver().get("https://qa-environment.koalaresorthotels.com/admin/HotelAdmin/Edit?Id=1033");
-        pagesSayfam.GroupSekmesi.click();
-        pagesSayfam.Group1.click();
-        pagesSayfam.SaveSekmesi.click();
+    public void Us_TC_005 () throws InterruptedException {
+        MusteriBilgileriGuncelleme.hotelListPages();
+        MusteriBilgileriGuncelleme.Group1.click();
+        MusteriBilgileriGuncelleme.savebuttonu.click();
         Thread.sleep(7000);
-        Assert.assertTrue(pagesSayfam.SaveOlduYazisi.isDisplayed());
+        Assert.assertTrue(MusteriBilgileriGuncelleme.succesfullytext.isDisplayed());
+        MusteriBilgileriGuncelleme.okbutonu.click();
+        MusteriBilgileriGuncelleme.HotelListsekmesi.click();
     }
-
     @Test
-    public void us008_TestCase06 () throws InterruptedException {
-        pagesSayfam.hotelManagment.click();
-        pagesSayfam.HotelListsekmesi.click();
-        pagesSayfam.DetailsSekmesi.click();
-        Driver.getDriver().get("https://qa-environment.koalaresorthotels.com/admin/HotelAdmin/Edit?Id=1033");
-        pagesSayfam.DeleteSekmesi.click();
-        pagesSayfam.DevammiText.click();
-
+    public void Us_TC_006 () throws InterruptedException {
+        MusteriBilgileriGuncelleme.hotelListPages();
+        MusteriBilgileriGuncelleme.DeleteSekmesi.click();
+        MusteriBilgileriGuncelleme.DevammiText.click();
+        Thread.sleep(7000);
+        Assert.assertTrue(MusteriBilgileriGuncelleme.TamamText.isDisplayed());
     }
-
-
-
-
-
 }
