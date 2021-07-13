@@ -6,11 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-<<<<<<< HEAD
         <module name="Hotel_Team_4" />
-=======
-        <module name="com.KoalaResort-Team4" />
->>>>>>> master
       </profile>
     </annotationProcessing>
   </component>
