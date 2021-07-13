@@ -34,7 +34,7 @@ public class US_005 {
     @Test(priority = 1,enabled = true, description = "Hotel ekleme formunun gorulebilir olmali")
     public void us005_TC001()  {
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("kr_expected_url"));
-      //  Driver.getDriver().close();
+        Driver.getDriver().close();
     }
 
 
