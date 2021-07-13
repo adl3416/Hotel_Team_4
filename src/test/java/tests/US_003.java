@@ -1,24 +1,52 @@
 package tests;
 
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.US_003_Home_Page_Elements;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.JSUtils;
-import utilities.ReusableMethods;
-
 import java.io.IOException;
 
 
 public class US_003 {
 
     US_003_Home_Page_Elements home_page_elements = new US_003_Home_Page_Elements();
+    ExtentReports extentReports;
+    ExtentTest extentTest;
+    ExtentHtmlReporter extentHtmlReporter;
+
+    @BeforeClass(alwaysRun = true)
+    public void reportSetUp(){
+        extentReports = new ExtentReports();
+
+        String filePath = System.getProperty("user.dir") + "/test-output/US_003.html";
+
+        extentReports.setSystemInfo("Environment","QA");
+        extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser"));
+        extentReports.setSystemInfo("Device",System.getProperty("os.version"));
+
+        extentHtmlReporter = new ExtentHtmlReporter(filePath);
+        extentHtmlReporter.config().setReportName("US_003");
+        extentHtmlReporter.config().setDocumentTitle("Home Page Elements");
+        extentReports.attachReporter(extentHtmlReporter);
+
+    }
+    @BeforeMethod(alwaysRun = true)
+    public void setUp(){
+        extentTest = extentReports.createTest("Test Results of US_003");
+
+    }
+
 
     @Test
     public void us_003_tc_001_WelcomeTo_KoalaResort_Text_IsDisplayed(){
@@ -69,7 +97,6 @@ public class US_003 {
         home_page_elements.restaurantButton.click();
         String currentTitle =Driver.getDriver().getTitle();
         Assert.assertEquals(currentTitle,ConfigReader.getProperty("restaurantButtonTitle"));
-        ReusableMethods.getScreenshot("RestaurantButtonIsClicable");
 
     }
     @Test
@@ -99,7 +126,6 @@ public class US_003 {
         JSUtils.changeColor("red",home_page_elements.loginButton);
         home_page_elements.loginButton.click();
         Assert.assertTrue(home_page_elements.loginText.isDisplayed());
-        ReusableMethods.getScreenshot("LoginButtonIsClicable");
     }
     @Test
     public void us_003_tc_009_Check_Availability_Button_isClickable() throws InterruptedException {
@@ -134,5 +160,8 @@ public class US_003 {
         Driver.getDriver().close();
 
     }
-
+    @AfterClass(alwaysRun = true)
+    public void tearDownReports(){
+        extentReports.flush();
+    }
 }
