@@ -30,24 +30,24 @@ public class US_012 {
         us_012_roomGuncelleme.detailsButon.click();
     }
 
-    @Test
+    @Test(priority = 1)
     public void PhotosSekmesi() {
         us_012_roomGuncelleme.photoslinki.click();
     }
 
-    @Test
+    @Test(priority = 2)
     public void SelectFileButonu() {
         us_012_roomGuncelleme.photoslinki.click();
         us_012_roomGuncelleme.selectFile.click();
     }
 
-    @Test
+    @Test(priority = 3)
     public void propertiesSekmesi() throws InterruptedException {
         Thread.sleep(7000);
         us_012_roomGuncelleme.properties.click();
     }
 
-    @Test
+    @Test(priority = 4)
     public void DropdownTesti() {
         us_012_roomGuncelleme.properties.click();
         Select select = new Select(us_012_roomGuncelleme.tipDropdown);
@@ -60,25 +60,27 @@ public class US_012 {
 
     }
 
-    @Test
+    @Test(priority = 5)
     public void pozitifCodeValueTextbox() {
-        us_012_roomGuncelleme.properties.click();
+        clickElementByJS(us_012_roomGuncelleme.properties);
+       // us_012_roomGuncelleme.properties.click();
         Select select = new Select(us_012_roomGuncelleme.tipDropdown);
         select.selectByVisibleText("room prop1");
         us_012_roomGuncelleme.codeYazisi.sendKeys("1234");
         us_012_roomGuncelleme.valueYazisi.sendKeys("asdef");
     }
 
-    @Test
+    @Test(priority = 6)
     public void saveButonu() {
-        us_012_roomGuncelleme.properties.click();
+        clickElementByJS(us_012_roomGuncelleme.properties);
+        //us_012_roomGuncelleme.properties.click();
         Select select = new Select(us_012_roomGuncelleme.tipDropdown);
         select.selectByVisibleText("room prop1");
         us_012_roomGuncelleme.codeYazisi.sendKeys("1234");
         us_012_roomGuncelleme.valueYazisi.sendKeys("asdef");
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        us_012_roomGuncelleme.saveButonu.click();
+        clickElementByJS(us_012_roomGuncelleme.saveButonu);
         //scrollDownByJS();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(us_012_roomGuncelleme.saveTusuUyariYazisi.getText().contains("Value added"));
@@ -87,9 +89,10 @@ public class US_012 {
         // Assert.assertTrue(us_012_roomGuncelleme.saveTusuUyariYazisi.getText().contains("Value added"));
     }
 
-    @Test
+    @Test(priority = 7)
     public void deleteButonu() {
-        us_012_roomGuncelleme.properties.click();
+        clickElementByJS(us_012_roomGuncelleme.properties);
+       // us_012_roomGuncelleme.properties.click();
         Select select = new Select(us_012_roomGuncelleme.tipDropdown);
         select.selectByVisibleText("room prop1");
         us_012_roomGuncelleme.codeYazisi.sendKeys("1234");
@@ -102,7 +105,7 @@ public class US_012 {
         // scrollPageDown();
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_UP).perform();
-        clickElementByJS(us_012_roomGuncelleme.saveOkButtonu);
+        us_012_roomGuncelleme.saveOkButtonu.click();
         actions.sendKeys(Keys.PAGE_UP).perform();
         clickElementByJS(us_012_roomGuncelleme.removeButonu);
         clickElementByJS(us_012_roomGuncelleme.removeOkButtonu);
@@ -111,8 +114,9 @@ public class US_012 {
     }
 
 
-    @Test
+    @Test(priority = 9)
     public void photoEkleVeUpload() throws InterruptedException {
+        clickElementByJS(us_012_roomGuncelleme.photoslinki);
         us_012_roomGuncelleme.photoslinki.click();
         us_012_roomGuncelleme.selectFile.click();
         System.out.println(System.getProperty("user.dir"));
@@ -123,7 +127,7 @@ public class US_012 {
         us_012_roomGuncelleme.uploadFile.click();
     }
 
-    @Test
+    @Test(priority = 8)
     public void negatifCodeValueYazisiTextBox() {
         clickElementByJS(us_012_roomGuncelleme.properties);
         //  us_012_roomGuncelleme.properties.click();
@@ -132,7 +136,7 @@ public class US_012 {
         us_012_roomGuncelleme.codeYazisi.sendKeys(" ");
         us_012_roomGuncelleme.valueYazisi.sendKeys(" ");
         scrollDownByJS();
-        clickElementByJS(us_012_roomGuncelleme.saveButonu);
+        us_012_roomGuncelleme.saveButonu.click();
         Assert.assertFalse(us_012_roomGuncelleme.degerBosBirakilamazYazisi.isDisplayed());
     }
 
