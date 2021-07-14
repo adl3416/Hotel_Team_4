@@ -74,6 +74,7 @@ public class US_012_RoomGuncelleme {
         @FindBy  (xpath = "//div[@class='bootbox-body']")
     public WebElement saveTusuUyariYazisi;
 
+
     }
 
 
