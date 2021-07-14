@@ -30,19 +30,12 @@ public class US_012 {
 
     @BeforeClass(alwaysRun = true)
 
-    public void loginTest() throws InterruptedException {
-        Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
-        us_012_roomGuncelleme.loginButton.click();
-        us_012_roomGuncelleme.userName.sendKeys(ConfigReader.getProperty("kr_valid_username"));
-        us_012_roomGuncelleme.password.sendKeys(ConfigReader.getProperty("kr_valid_password"));
-        us_012_roomGuncelleme.loginSubmit.click();
-        us_012_roomGuncelleme.hotelManagement.click();
-        us_012_roomGuncelleme.hotelRooms.click();
-        us_012_roomGuncelleme.detailsButon.click();
+    public void test() throws InterruptedException {
+
 
 
         extentReports = new ExtentReports();
-        String filePath = System.getProperty("user.dir") + "test-output/US_012.html";
+        String filePath = System.getProperty("user.dir") + "/test-output/US_012.html";
 
         extentReports.setSystemInfo("Enviroment", "QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser"));
@@ -58,7 +51,16 @@ public class US_012 {
     @BeforeMethod(alwaysRun = true)
 
     public void deneme() {
+
         us_012_roomGuncelleme = new US_012_RoomGuncelleme();
+        Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
+        us_012_roomGuncelleme.loginButton.click();
+        us_012_roomGuncelleme.userName.sendKeys(ConfigReader.getProperty("kr_valid_username"));
+        us_012_roomGuncelleme.password.sendKeys(ConfigReader.getProperty("kr_valid_password"));
+        us_012_roomGuncelleme.loginSubmit.click();
+        us_012_roomGuncelleme.hotelManagement.click();
+        us_012_roomGuncelleme.hotelRooms.click();
+        us_012_roomGuncelleme.detailsButon.click();
         extentTest = extentReports.createTest("01", "");
     }
 
