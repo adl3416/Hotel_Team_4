@@ -30,7 +30,6 @@ public class US_014_Negatif_RoomReservasyon {
         anasayfaLoginButton.click();
         String chordLoginData = Keys.chord(ConfigReader.getProperty("kr_valid_username"), Keys.TAB, ConfigReader.getProperty("kr_valid_password"),Keys.TAB,Keys.ENTER);
         loginUsername.sendKeys(chordLoginData);
-
     }
 
     @FindBy(xpath = "//span[text()='Hotel Management']")
