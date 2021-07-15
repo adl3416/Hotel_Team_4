@@ -36,7 +36,7 @@ public abstract class TestBaseRapor {
 
         // İstediğiniz bilgileri buraya ekeyebiliyorsunuz.
 
-        extentReports.setSystemInfo("Enviroment","QA");
+        extentReports.setSystemInfo("Enviroment", "QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
         extentReports.setSystemInfo("Automation Engineer", "Adem");
         extentHtmlReporter.config().setDocumentTitle("Deneme Testi");
@@ -45,7 +45,7 @@ public abstract class TestBaseRapor {
     }
 
     @BeforeMethod(alwaysRun = true)
-    public void setUpMethod(){
+    public void setUpMethod() {
         extentTest = extentReports.createTest("yeni rapor olusturma");
 
     }
@@ -67,12 +67,16 @@ public abstract class TestBaseRapor {
         Driver.closeDriver();
     }
 
-    // Raporlandırmayı sonlandırmak icin
-    @AfterTest(alwaysRun = true)
-    public void tearDownTest() {
-        extentReports.flush();
+
+
+
+        // Raporlandırmayı sonlandırmak icin
+        @AfterTest(alwaysRun = true)
+        public void tearDownTest () {
+            extentReports.flush();
+        }
+
     }
-}
 
 
 
