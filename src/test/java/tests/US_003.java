@@ -41,47 +41,41 @@ public class US_003 {
         extentReports.attachReporter(extentHtmlReporter);
 
     }
-    @BeforeMethod(alwaysRun = true)
-    public void setUp(){
-        extentTest = extentReports.createTest("Test Results of US_003");
 
-    }
-
-
-    @Test
+    @Test(priority = 1)
     public void us_003_tc_001_WelcomeTo_KoalaResort_Text_IsDisplayed(){
 
+        extentTest = extentReports.createTest("TC_001_WelcomeTo_KoalaResort_Text_IsDisplayed");
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
-
         String actual = home_page_elements.carousel();
         String expected = "Welcome To Koala Resort";
         Assert.assertEquals(expected,actual);
 
     }
-    @Test
+    @Test(priority = 2)
     public void us_003_tc_002_KoalaResort_Text_IsDisplayed(){
 
+        extentTest = extentReports.createTest("TC_002_KoalaResort_Text_IsDisplayed");
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
-
         Assert.assertTrue(home_page_elements.koalaResortText.isDisplayed());
 
     }
-    @Test
+    @Test (priority = 4)
     public void us_003_tc_003_Rooms_Button_isClickable(){
 
+        extentTest = extentReports.createTest("TC_003_Rooms_Button_isClickable");
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
-
         JSUtils.changeColor("red",home_page_elements.roomsButton);
         home_page_elements.roomsButton.click();
         String url = Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(url,ConfigReader.getProperty("roomsButtonLink"));
 
     }
-    @Test
+    @Test (priority = 3)
     public void us_003_tc_004_Home_Button_isClickable(){
 
+        extentTest = extentReports.createTest("TC_004_Home_Button_isClickable");
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
-
         JSUtils.changeColor("red",home_page_elements.homeButton);
         String homeTitle= Driver.getDriver().getTitle();
         home_page_elements.homeButton.click();
@@ -89,9 +83,10 @@ public class US_003 {
         Assert.assertEquals(homeTitle,homeCurrentTitle);
 
     }
-    @Test
-    public void us_003_tc_005_Restaurant_Button_isClickable() throws IOException {
+    @Test (priority = 5)
+    public void us_003_tc_005_Restaurant_Button_isClickable() {
 
+        extentTest = extentReports.createTest("TC_005_Restaurant_Button_isClickable");
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
         JSUtils.changeColor("red",home_page_elements.restaurantButton);
         home_page_elements.restaurantButton.click();
@@ -99,9 +94,10 @@ public class US_003 {
         Assert.assertEquals(currentTitle,ConfigReader.getProperty("restaurantButtonTitle"));
 
     }
-    @Test
+    @Test (priority = 6)
     public void us_003_tc_006_About_Button_isClickable()  {
 
+        extentTest = extentReports.createTest("TC_006_About_Button_isClickable");
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
         JSUtils.changeColor("red",home_page_elements.aboutButton);
         home_page_elements.aboutButton.click();
@@ -110,29 +106,31 @@ public class US_003 {
 
 
     }
-    @Test
+    @Test(priority = 7)
     public void us_003_tc_007_Blog_Button_isClickable(){
 
+        extentTest = extentReports.createTest("TC_007_Blog_Button_isClickable");
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
         JSUtils.changeColor("red",home_page_elements.blogButton);
         home_page_elements.blogButton.click();
         Assert.assertTrue(home_page_elements.blogText.isDisplayed());
 
     }
-    @Test
+    @Test(priority = 8)
     public void us_003_tc_008_Login_Button_isClickable() throws IOException {
 
+        extentTest = extentReports.createTest("TC_008_Login_Button_isClickable");
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
         JSUtils.changeColor("red",home_page_elements.loginButton);
         home_page_elements.loginButton.click();
         Assert.assertTrue(home_page_elements.loginText.isDisplayed());
     }
-    @Test
+    @Test(priority = 9)
     public void us_003_tc_009_Check_Availability_Button_isClickable() throws InterruptedException {
 
+        extentTest = extentReports.createTest("TC_009_Check_Availability_Button_isClickable");
         Actions action= new Actions(Driver.getDriver());
         Driver.getDriver().get(ConfigReader.getProperty("kr_url"));
-
         JSUtils.scrollIntoVIewJS(home_page_elements.checkinBox);
 
         action.click(home_page_elements.checkinBox).build().perform();
